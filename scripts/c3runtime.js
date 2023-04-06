@@ -4322,8 +4322,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Exps.urlencode,
 		C3.Plugins.Eponesh_GameScore.Acts.AdsShowPreloader,
 		C3.Plugins.Text.Exps.Text,
-		C3.Plugins.Json.Cnds.IsBoolInstanceVarSet,
 		C3.Plugins.AJAX.Acts.RequestFile,
+		C3.Plugins.Json.Cnds.IsBoolInstanceVarSet,
 		C3.Plugins.Text.Cnds.CompareText,
 		C3.Behaviors.MoveTo.Cnds.IsMoving,
 		C3.Behaviors.MoveTo.Cnds.OnArrived,
@@ -5018,11 +5018,6 @@ self.C3_ExpressionFuncs = [
 		() => 0.2,
 		() => 683,
 		() => 1206,
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const v1 = p._GetNode(1).GetVar();
-			return () => f0(and("jsonenum", v1.GetValue()));
-		},
 		p => {
 			const n0 = p._GetNode(0);
 			const v1 = p._GetNode(1).GetVar();
