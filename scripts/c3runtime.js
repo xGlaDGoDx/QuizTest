@@ -4642,10 +4642,6 @@ self.C3_ExpressionFuncs = [
 			return () => f0("typequiz");
 		},
 		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0("jsonenum");
-		},
-		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => (v0.GetValue() % 9);
 		},
@@ -4875,6 +4871,11 @@ self.C3_ExpressionFuncs = [
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => (((v0.GetValue() * 2) + 1) % 7);
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			return () => f0(and("jsonenum", v1.GetValue()));
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
