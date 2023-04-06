@@ -5078,14 +5078,6 @@ self.C3_ExpressionFuncs = [
 			const v2 = p._GetNode(2).GetVar();
 			const v3 = p._GetNode(3).GetVar();
 			return () => Math.round(f0(1, (n1.ExpObject((((v2.GetValue()).toString() + ".") + (v3.GetValue()).toString())) - 1)));
-		},
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => and("type", v0.GetValue());
-		},
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => and("jsonenum", v0.GetValue());
 		}
 ];
 
