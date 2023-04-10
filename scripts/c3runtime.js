@@ -4289,13 +4289,11 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Json.Acts.SetBoolInstanceVar,
 		C3.Plugins.Eponesh_GameScore.Acts.AnalyticsGoal,
 		C3.Plugins.System.Cnds.Compare,
-		C3.Behaviors.MoveTo.Acts.MoveToPosition,
+		C3.Plugins.Sprite.Acts.SetBoolInstanceVar,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
 		C3.Plugins.System.Cnds.CompareVar,
 		C3.Plugins.Eponesh_GameScore.Cnds.IsAdsPreloaderPlaying,
 		C3.Behaviors.Pin.Acts.PinByProperties,
-		C3.Plugins.Sprite.Acts.LoadURL,
-		C3.Plugins.Eponesh_GameScore.Exps.PlayerAvatar,
 		C3.Plugins.Sprite.Cnds.IsOverlapping,
 		C3.Behaviors.Pin.Acts.Unpin,
 		C3.Plugins.Date.Exps.ToUTCString,
@@ -4309,14 +4307,15 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Arr.Acts.SplitString,
 		C3.Plugins.AJAX.Exps.LastData,
 		C3.Plugins.Arr.Exps.At,
+		C3.Plugins.Sprite.Acts.LoadURL,
 		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.Eponesh_GameScore.Acts.PaymentsPurchase,
 		C3.Plugins.System.Acts.SubVar,
+		C3.Behaviors.MoveTo.Acts.MoveToPosition,
 		C3.Plugins.Sprite.Cnds.IsOutsideLayout,
 		C3.Plugins.System.Cnds.CompareBoolVar,
 		C3.Plugins.System.Acts.SetBoolVar,
 		C3.Plugins.Sprite.Cnds.IsBoolInstanceVarSet,
-		C3.Plugins.Sprite.Acts.SetBoolInstanceVar,
 		C3.Plugins.Date.Exps.ToLocaleDateString,
 		C3.Plugins.Sprite.Exps.Opacity,
 		C3.Plugins.System.Acts.NextPrevLayout,
@@ -4325,6 +4324,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Date.Exps.ToTotalSeconds,
 		C3.Plugins.Eponesh_GameScore.Acts.LeaderboardFetch,
 		C3.Plugins.System.Acts.WaitForPreviousActions,
+		C3.Plugins.Eponesh_GameScore.Exps.PlayerAvatar,
 		C3.Plugins.Eponesh_GameScore.Exps.LeaderboardCurPlayerPosition,
 		C3.Plugins.Eponesh_GameScore.Cnds.LeaderboardEachPlayer,
 		C3.Plugins.Eponesh_GameScore.Exps.LeaderboardCurPlayerAvatar,
@@ -4413,6 +4413,7 @@ self.C3_JsPropNameTable = [
 	{МонетыТекст: 0},
 	{ОткрытьЗаЗвёзды: 0},
 	{ОткрытьЗаМонеты: 0},
+	{goCheck: 0},
 	{ФонДляОткрытияДвери: 0},
 	{ФонДляБанка: 0},
 	{КнопкаДоната: 0},
@@ -4709,8 +4710,6 @@ self.C3_ExpressionFuncs = [
 		},
 		() => "game_screen",
 		() => 8,
-		() => 540,
-		() => 1043,
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => ((v0.GetValue() * 2) - 1);
@@ -4722,11 +4721,6 @@ self.C3_ExpressionFuncs = [
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => (v0.GetValue() % 4);
-		},
-		() => 960,
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0();
 		},
 		() => -4,
 		() => 4,
@@ -4757,6 +4751,10 @@ self.C3_ExpressionFuncs = [
 		},
 		() => 60,
 		() => "get",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0();
+		},
 		() => "<br>",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -4795,6 +4793,8 @@ self.C3_ExpressionFuncs = [
 			const v0 = p._GetNode(0).GetVar();
 			return () => (Math.round((v0.GetValue() / 9)) + 1);
 		},
+		() => 540,
+		() => 960,
 		() => -2600,
 		() => 2500,
 		() => 3000,
@@ -5022,6 +5022,7 @@ self.C3_ExpressionFuncs = [
 			const v1 = p._GetNode(1).GetVar();
 			return () => ((((6 * 60) * 60) * 1000) - (f0() - v1.GetValue()));
 		},
+		() => 1043,
 		() => "Настройки2",
 		() => -100000,
 		() => "АнимацияБлюра2",
