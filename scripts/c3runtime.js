@@ -4248,13 +4248,16 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.TiledBg,
 		C3.Plugins.Browser,
 		C3.Plugins.LocalStorage,
+		C3.Plugins.System.Cnds.OnLayoutStart,
+		C3.Plugins.Browser.Acts.ConsoleLog,
+		C3.Plugins.System.Acts.UnloadUnusedTextures,
+		C3.Plugins.Eponesh_GameScore.Acts.AnalyticsGoal,
 		C3.Plugins.System.Cnds.IsGroupActive,
 		C3.Plugins.Eponesh_GameScore.Cnds.OnPaymentsPurchase,
 		C3.Plugins.System.Acts.AddVar,
 		C3.Plugins.Eponesh_GameScore.Acts.PlayerSet,
 		C3.Plugins.Eponesh_GameScore.Acts.PlayerSync,
 		C3.Plugins.Text.Acts.SetText,
-		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.Eponesh_GameScore.Cnds.PlatformType,
 		C3.Plugins.Text.Cnds.CompareInstanceVar,
 		C3.Plugins.Text.Acts.SetFontSize,
@@ -4282,12 +4285,10 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.TiledBg.Exps.Width,
 		C3.Plugins.TiledBg.Acts.SetImageScaleY,
 		C3.Plugins.TiledBg.Exps.Height,
-		C3.Plugins.Browser.Acts.ConsoleLog,
 		C3.Plugins.Eponesh_GameScore.Exps.PlayerGet,
 		C3.Plugins.System.Exps.int,
 		C3.Plugins.System.Exps.tokenat,
 		C3.Plugins.Json.Acts.SetBoolInstanceVar,
-		C3.Plugins.Eponesh_GameScore.Acts.AnalyticsGoal,
 		C3.Plugins.System.Cnds.Compare,
 		C3.Plugins.Sprite.Acts.SetBoolInstanceVar,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
@@ -4343,6 +4344,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Exps.urlencode,
 		C3.Plugins.Eponesh_GameScore.Acts.AdsShowPreloader,
 		C3.Plugins.Text.Exps.Text,
+		C3.Plugins.Eponesh_GameScore.Acts.SocialsShare,
 		C3.Plugins.AJAX.Acts.RequestFile,
 		C3.Plugins.LocalStorage.Acts.GetItem,
 		C3.Plugins.LocalStorage.Cnds.OnAnyItemGet,
@@ -4368,7 +4370,10 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Cnds.While,
 		C3.Plugins.Arr.Cnds.Contains,
 		C3.Plugins.Arr.Acts.Push,
-		C3.Plugins.Arr.Exps.Width
+		C3.Plugins.Arr.Exps.Width,
+		C3.Plugins.System.Acts.LoadLayoutTextures,
+		C3.Plugins.System.Cnds.OnImageLoadingComplete,
+		C3.Plugins.System.Acts.GoToLayout
 	];
 };
 self.C3_JsPropNameTable = [
@@ -4455,7 +4460,6 @@ self.C3_JsPropNameTable = [
 	{Музыка: 0},
 	{ТайловыйФон: 0},
 	{ТайловыйФон2: 0},
-	{Спрайт: 0},
 	{ФонОтключенияРекламы: 0},
 	{ДонатЗаОтключениеРекламы: 0},
 	{РекламаТекст: 0},
@@ -4607,6 +4611,9 @@ function or(l, r)
 }
 
 self.C3_ExpressionFuncs = [
+		() => "Version 3.0",
+		() => "game_screen",
+		() => 0,
 		() => "Банк",
 		() => 1267,
 		() => 50,
@@ -4622,7 +4629,6 @@ self.C3_ExpressionFuncs = [
 		() => 1270,
 		() => 500,
 		() => "50 голосов",
-		() => 0,
 		() => 55,
 		() => "35 голосов",
 		() => 1,
@@ -4662,7 +4668,6 @@ self.C3_ExpressionFuncs = [
 			return () => ((n0.ExpObject() / 1967) * 100);
 		},
 		() => "СтартовыеНастройки",
-		() => "Version 1.0",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0("checkpointscount");
@@ -4708,7 +4713,6 @@ self.C3_ExpressionFuncs = [
 			const v0 = p._GetNode(0).GetVar();
 			return () => ((((v0.GetValue() * 2) + 1) % 7) + 1);
 		},
-		() => "game_screen",
 		() => 8,
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -5023,6 +5027,10 @@ self.C3_ExpressionFuncs = [
 			return () => ((((6 * 60) * 60) * 1000) - (f0() - v1.GetValue()));
 		},
 		() => 1043,
+		() => "А ты сможешь угадать выражение?",
+		() => "https://ok.ru/game/poslovica",
+		() => "https://i.mycdn.me/i?r=AzH_6SpAKLXS8rFFHl9gfwZjJoP_bX-5wZsaLFoxyaog70Fq5N8wHP7CgO5egvN-aUE",
+		() => "https://vk.com/app51571784_712633594",
 		() => "Настройки2",
 		() => -100000,
 		() => "АнимацияБлюра2",
@@ -5122,7 +5130,8 @@ self.C3_ExpressionFuncs = [
 			const v3 = p._GetNode(3).GetVar();
 			return () => Math.round(f0(1, (n1.ExpObject((((v2.GetValue()).toString() + ".") + (v3.GetValue()).toString())) - 1)));
 		},
-		() => 150
+		() => 150,
+		() => "load_start"
 ];
 
 
