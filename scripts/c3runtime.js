@@ -4372,8 +4372,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Arr.Acts.Push,
 		C3.Plugins.Arr.Exps.Width,
 		C3.Plugins.System.Acts.LoadLayoutTextures,
-		C3.Plugins.System.Cnds.OnImageLoadingComplete,
-		C3.Plugins.System.Acts.GoToLayout
+		C3.Plugins.System.Cnds.OnImageLoadingComplete
 	];
 };
 self.C3_JsPropNameTable = [
